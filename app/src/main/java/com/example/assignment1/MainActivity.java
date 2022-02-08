@@ -31,11 +31,16 @@ public class MainActivity extends AppCompatActivity implements Main_View_Interfa
     public CovidCheck_Interface controller;
     int total = 0, flag = 0;
     String next;
+    String activityName = "Main Activity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        String message = "State of activity " + activityName + " is Created";
+        Log.i(activityName, message);
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
 
         txtName = (EditText) findViewById(R.id.editTextName);
         symptom_txtView = (TextView) findViewById(R.id.symptom_txtview);
@@ -115,49 +120,48 @@ public class MainActivity extends AppCompatActivity implements Main_View_Interfa
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i("Main Activity:", "Started");
-        Toast.makeText(getApplicationContext(), "Main Activity Started", Toast.LENGTH_LONG).show();
+        String message = "State of activity " + activityName + " changed from Created to Started";
+        Log.i(activityName, message);
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.i("Main Activity:", "Restarted");
-        Toast.makeText(getApplicationContext(), "Main Activity Restarted", Toast.LENGTH_LONG).show();
+        String message = "State of activity " + activityName + " changed from Stopped to Started";
+        Log.i(activityName, message);
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i("Main Activity:", "Resumed");
-        Toast.makeText(getApplicationContext(), "Main Activity Resumed", Toast.LENGTH_LONG).show();
+        String message = "State of activity " + activityName + " changed from Paused to Resumed";
+        Log.i(activityName, message);
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i("Main Activity:", "Paused");
-        Toast.makeText(getApplicationContext(), "Main Activity Paused", Toast.LENGTH_LONG).show();
+        String message = "State of activity " + activityName + " changed from Running to Paused";
+        Log.i(activityName, message);
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.i("Main Activity:", "Stopped");
-        Toast.makeText(getApplicationContext(), "Main Activity Stopped", Toast.LENGTH_LONG).show();
+        String message = "State of activity " + activityName + " changed from Paused to Stopped";
+        Log.i(activityName, message);
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i("Main Activity:", "Destroyed");
-        Toast.makeText(getApplicationContext(), "Main Activity Destroyed", Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void onConfigurationChanged(@NonNull Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        Log.i("Main Activity:", "Configuration Changed");
-        Toast.makeText(getApplicationContext(), "Main Activity Configuration Changed", Toast.LENGTH_LONG).show();
+        String message = "State of activity " + activityName + " changed from Stopped to Destroyed";
+        Log.i(activityName, message);
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 }
